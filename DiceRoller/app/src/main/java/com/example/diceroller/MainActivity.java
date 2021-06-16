@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.Random;
 
@@ -46,12 +49,54 @@ public class MainActivity extends AppCompatActivity {
                     // Reason we cast to int is that this is a Drawable ID number
                     //  that Android uses
                     dice_image.setImageResource(diceImageField);
+
+                    modifyResultText(int_random);
+
                 } catch (NoSuchFieldException | IllegalAccessException e) {
                     e.printStackTrace();
                 }
 
             }
         );
+    }
 
+    void modifyResultText(int diceResult) {
+        // Check whether or not to invert the result of the Dice here
+        ToggleButton invert_result_toggleButton = (ToggleButton) findViewById(R.id.invert_result_toggleButton);
+        if (invert_result_toggleButton.isChecked()) {
+            switch (diceResult) {
+                case 1:
+                    diceResult = 6;
+                    break;
+                case 2:
+                    diceResult = 5;
+                    break;
+                case 3:
+                    diceResult = 4;
+                    break;
+                case 4:
+                    diceResult = 3;
+                    break;
+                case 5:
+                    diceResult = 2;
+                    break;
+                case 6:
+                    diceResult = 1;
+                    break;
+                default:
+                    diceResult = -1;
+                    System.out.println("Should not reach here");
+                    break;
+            }
+        }
+
+        // We get the specific TextView of the Result Text
+        TextView result_text_view = (TextView) findViewById(R.id.dice_result_textView);
+
+        // Make the text to show what was rolled
+        String result = "The result of your dice is: " + diceResult;
+
+        // Present the text to the viewer as a modified text of the TextView
+        result_text_view.setText(result);
     }
 }

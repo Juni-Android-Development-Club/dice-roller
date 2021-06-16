@@ -54,18 +54,18 @@
         android:id="@+id/invert_result_toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="117dp"
         android:layout_marginBottom="92dp"
         android:text="ToggleButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toEndOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="117dp"
         android:text="Invert Results"
         app:layout_constraintBottom_toBottomOf="@+id/invert_result_toggleButton"
         app:layout_constraintStart_toStartOf="parent"
